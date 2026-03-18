@@ -9,7 +9,7 @@ public class DifficultyNotFoundException extends RuntimeException {
         this.diffculty = diffculty;
     }
 
-    public String getDiffculty() {
+    public String getDifficulty() {
         return diffculty;
     }
 }

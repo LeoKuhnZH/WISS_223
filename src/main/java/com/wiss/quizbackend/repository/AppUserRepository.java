@@ -11,6 +11,7 @@ public interface AppUserRepository extends JpaRepository<AppUser, Long> {
 
     // Custom Query Methods für User Management
     Optional<AppUser> findByUsername(String username);
+
     Optional<AppUser> findByEmail(String email);
 
     // Für Login-Validierung
@@ -19,6 +20,7 @@ public interface AppUserRepository extends JpaRepository<AppUser, Long> {
 
     // Prüfung ob Username bereits existiert
     boolean existsByUsername(String username);
+
     boolean existsByEmail(String email);
 }
 

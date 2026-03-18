@@ -10,7 +10,7 @@ public class ErrorResponseDTO {
     private LocalDateTime timestamp;
     private String path;
 
-    public ErrorResponseDTO(String error, String message, int status, String path){
+    public ErrorResponseDTO(String error, String message, int status, String path) {
         this.error = error;
         this.message = message;
         this.status = status;
@@ -19,18 +19,43 @@ public class ErrorResponseDTO {
     }
 
     // Getter und Setter
-    public String getError() { return error; }
-    public void setError(String error) { this.error = error; }
+    public String getError() {
+        return error;
+    }
 
-    public String getMessage() { return message; }
-    public void setMessage(String message) { this.message = message; }
+    public void setError(String error) {
+        this.error = error;
+    }
 
-    public int getStatus() { return status; }
-    public void setStatus(int status) { this.status = status; }
+    public String getMessage() {
+        return message;
+    }
 
-    public LocalDateTime getTimestamp() { return timestamp; }
-    public void setTimestamp(LocalDateTime timestamp) { this.timestamp = timestamp; }
+    public void setMessage(String message) {
+        this.message = message;
+    }
 
-    public String getPath() { return path; }
-    public void setPath(String path) { this.path = path; }
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public LocalDateTime getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(LocalDateTime timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
 }

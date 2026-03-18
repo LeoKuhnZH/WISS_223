@@ -12,8 +12,8 @@ import java.util.List;
 /**
  * Mapper-Klasse für die Konvertierung zwischen Question Entity und verschiedenen DTOs.
  * <p>
- *     Diese Utility-Klasse stellt statische Methoden zur Verfügung, um Question-Objekte
- *     zwischen verschiedenen Repräsentationen zu konvertieren:
+ * Diese Utility-Klasse stellt statische Methoden zur Verfügung, um Question-Objekte
+ * zwischen verschiedenen Repräsentationen zu konvertieren:
  * </p>
  * <ul>
  *     <li>{@link Question} - JPA Entity für die Datenbank</li>
@@ -36,8 +36,7 @@ public class QuestionMapper {
      *
      * @param entity Die Question Entity aus der Datenbank
      * @return Das QuestionDTO mit gemischten Antworten für das Quiz-Spiel,
-     *         oder {@code null} falls die Entity {@code null} ist
-     *
+     * oder {@code null} falls die Entity {@code null} ist
      * @see QuestionDTO
      * @see Collections#shuffle(List)
      */
@@ -73,8 +72,7 @@ public class QuestionMapper {
      *
      * @param entity Die Question Entity aus der Datenbank
      * @return Das QuestionFormDTO mit getrennten Antworten für Bearbeitungsformulare,
-     *         oder {@code null} falls die Entity {@code null} ist
-     *
+     * oder {@code null} falls die Entity {@code null} ist
      * @see QuestionFormDTO
      */
     public static QuestionFormDTO toFormDTO(Question entity) {
@@ -108,8 +106,7 @@ public class QuestionMapper {
      *
      * @param dto Das QuestionDTO vom Frontend (z.B. aus einem REST-Request)
      * @return Die Question Entity für die Datenbank-Persistierung,
-     *         oder {@code null} falls das DTO {@code null} ist
-     *
+     * oder {@code null} falls das DTO {@code null} ist
      * @see QuestionDTO
      * @see Question
      */
@@ -141,8 +138,7 @@ public class QuestionMapper {
      *
      * @param entities Liste von Question Entities aus der Datenbank
      * @return Liste von QuestionDTOs mit gemischten Antworten,
-     *         leere Liste, falls Input {@code null} oder leer ist
-     *
+     * leere Liste, falls Input {@code null} oder leer ist
      * @see #toDTO(Question)
      */
     public static List<QuestionDTO> toDTOList(List<Question> entities) {
@@ -159,8 +155,7 @@ public class QuestionMapper {
      *
      * @param entities Liste von Question Entities aus der Datenbank
      * @return Liste von QuestionFormDTOs mit getrennten Antworten,
-     *         leere Liste, falls Input {@code null} oder leer ist
-     *
+     * leere Liste, falls Input {@code null} oder leer ist
      * @see #toFormDTO(Question)
      */
     public static List<QuestionFormDTO> toFormDTOList(List<Question> entities) {

@@ -32,8 +32,8 @@ public class QuestionService {
         return QuestionMapper.toFormDTOList(entities);
     }
 
-    public QuestionDTO getQuestionByIdAsDTO(Long id){
-        if(id == null) {
+    public QuestionDTO getQuestionByIdAsDTO(Long id) {
+        if (id == null) {
             throw new IllegalArgumentException("Question ID cannot be null");
         }
 
@@ -45,8 +45,8 @@ public class QuestionService {
         return QuestionMapper.toDTO(entity);
     }
 
-    public QuestionFormDTO getQuestionByIdAsFormDTO(Long id){
-        if(id == null) {
+    public QuestionFormDTO getQuestionByIdAsFormDTO(Long id) {
+        if (id == null) {
             throw new IllegalArgumentException("Question ID cannot be null");
         }
 
@@ -63,7 +63,7 @@ public class QuestionService {
         return QuestionMapper.toDTOList(entities);
     }
 
-    public List<QuestionDTO> getQuestionsByDifficultyAsDTO(String difficulty){
+    public List<QuestionDTO> getQuestionsByDifficultyAsDTO(String difficulty) {
         List<Question> entities = getQuestionsByDifficulty(difficulty);
         return QuestionMapper.toDTOList(entities);
     }
@@ -102,6 +102,7 @@ public class QuestionService {
     /**
      * Create a new question
      * using save method without existing ID
+     *
      * @param questionDTO
      * @return
      */
@@ -138,13 +139,14 @@ public class QuestionService {
     /**
      * Update a question
      * using save method with an existing ID
+     *
      * @param id
      * @param questionDTO
      * @return
      */
     public QuestionDTO updateQuestion(Long id, QuestionDTO questionDTO) {
         // 1. Prüfen ob Frage existiert (repository.existsById())
-        if(!repository.existsById(id)){
+        if (!repository.existsById(id)) {
             throw new QuestionNotFoundException(id);
         }
         // 2. DTO zu Entity konvertieren UND ID setzen
@@ -156,9 +158,9 @@ public class QuestionService {
         return QuestionMapper.toDTO(updatedEntity);
     }
 
-    public QuestionFormDTO updateQuestionFromForm(Long id, Question question){
+    public QuestionFormDTO updateQuestionFromForm(Long id, Question question) {
         // Prüfen ob Frage existiert
-        if(!repository.existsById(id)){
+        if (!repository.existsById(id)) {
             throw new QuestionNotFoundException(id);
         }
         question.setId(id);
@@ -171,12 +173,13 @@ public class QuestionService {
     /**
      * Delete a Question
      * using the id to identify the question
+     *
      * @param id
      * @return
      */
     public void deleteQuestion(Long id) {
         // 1. Prüfen ob Frage existiert
-        if(!repository.existsById(id)){
+        if (!repository.existsById(id)) {
             throw new QuestionNotFoundException(id);
         }
         // 2. Repository.deleteById() aufrufen

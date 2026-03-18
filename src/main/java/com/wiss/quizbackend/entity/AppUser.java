@@ -11,6 +11,19 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "app_users")
 public class AppUser {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(nullable = false, length = 50, unique = true)
+    private String username;
+    @Column(nullable = false, length = 100, unique = true)
+    private String email;
+    @Column(nullable = false)
+    private String password;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Role role;
+
     public AppUser() {
     }
 
@@ -19,23 +32,6 @@ public class AppUser {
         this.email = email;
         this.password = password;
     }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(nullable = false, length = 50, unique = true)
-    private String username;
-
-    @Column(nullable = false, length = 100, unique = true)
-    private String email;
-
-    @Column(nullable = false)
-    private String password;
-
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private Role role;
 
     @Nonnull
     public Long getId() {
@@ -77,7 +73,6 @@ public class AppUser {
     public Role getRole() {
         return role;
     }
-
 
 
     public void setRole(Role role) {

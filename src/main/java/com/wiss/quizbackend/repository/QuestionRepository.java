@@ -22,6 +22,7 @@ public interface QuestionRepository extends JpaRepository<Question, Long> {
 
     // Custom Query Methods (basierend auf Methoden-Namen):
     List<Question> findByCategory(String category);
+
     List<Question> findByDifficulty(String difficulty);
 
     // Spring übersetzt automatisch:
@@ -30,19 +31,24 @@ public interface QuestionRepository extends JpaRepository<Question, Long> {
 
     // Kombinierte Queries:
     List<Question> findByCategoryAndDifficulty(String category, String difficulty);
+
     List<Question> findByCategoryOrDifficulty(String category, String difficulty);
 
     // Text-Suche:
     List<Question> findByQuestionContaining(String keyword);
+
     List<Question> findByQuestionContainingIgnoreCase(String keyword);
 
     // Counting:
     long countByCategory(String category);
+
     long countByDifficulty(String difficulty);
+
     long countByCategoryAndDifficulty(String category, String difficulty);
 
     // Sortierung:
     List<Question> findByCategoryOrderByQuestionAsc(String category);
+
     List<Question> findByDifficultyOrderByIdDesc(String difficulty);
 
     // Existenz prüfen:
@@ -50,6 +56,7 @@ public interface QuestionRepository extends JpaRepository<Question, Long> {
 
     // Top N Results:
     List<Question> findTop5ByCategory(String category);
+
     List<Question> findFirst3ByDifficultyOrderByIdAsc(String difficulty);
 
     // Random

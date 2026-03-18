@@ -34,13 +34,13 @@ import java.util.List;
  *
  * @author Johnny Krup
  * @version 1.0
- * @since 2025-06-01
  * @see QuestionService
  * @see QuestionDTO
+ * @since 2025-06-01
  */
 @RestController
 @RequestMapping("/api/questions")
-@Tag(name="Questions", description = "CRUD Operations für Quiz-Fragen")
+@Tag(name = "Questions", description = "CRUD Operations für Quiz-Fragen")
 public class QuestionController {
     private final QuestionService service;
 
@@ -89,7 +89,7 @@ public class QuestionController {
      * @param id Die eindeutige ID der gewünschten Frage
      * @return Die gefundene Frage als DTO
      * @throws QuestionNotFoundException wenn keine Frage mit der ID existiert
-     * @throws IllegalArgumentException wenn die ID ungültig ist (null oder negativ)
+     * @throws IllegalArgumentException  wenn die ID ungültig ist (null oder negativ)
      */
     @GetMapping("/{id}")
     @Operation(
@@ -115,7 +115,7 @@ public class QuestionController {
      * @param id Die eindeutige ID der gewünschten Frage
      * @return Die gefundene Frage als FormDTO
      * @throws QuestionNotFoundException wenn keine Frage mit der ID existiert
-     * @throws IllegalArgumentException wenn die ID ungültig ist (null oder negativ)
+     * @throws IllegalArgumentException  wenn die ID ungültig ist (null oder negativ)
      */
     @GetMapping("/{id}/edit")
     @Operation(
@@ -188,7 +188,7 @@ public class QuestionController {
     @ApiResponse(responseCode = "400", description = "Ungültige Eingabedaten")
     public QuestionDTO createQuestion(
             @Parameter(description = "Frage-Daten", required = true)
-            @Valid @RequestBody QuestionDTO questionDTO){ // ← @Valid hinzufügen!
+            @Valid @RequestBody QuestionDTO questionDTO) { // ← @Valid hinzufügen!
         return service.createQuestion(questionDTO);
     }
 
@@ -218,7 +218,7 @@ public class QuestionController {
     /**
      * Aktualisiert eine bestehende Quiz-Frage.
      *
-     * @param id Die ID der zu aktualisierenden Frage
+     * @param id          Die ID der zu aktualisierenden Frage
      * @param questionDTO Die aktualisierten Frage-Daten
      * @return Die aktualisierte Frage
      * @throws QuestionNotFoundException wenn die Frage nicht existiert*
@@ -233,14 +233,14 @@ public class QuestionController {
     public QuestionDTO updateQuestion(
             @Parameter(description = "ID der zu aktualisierenden Frage", example = "1")
             @PathVariable Long id,
-            @Valid @RequestBody QuestionDTO questionDTO){
+            @Valid @RequestBody QuestionDTO questionDTO) {
         return service.updateQuestion(id, questionDTO);
     }
 
     /**
      * Aktualisiert eine bestehende Quiz-Frage.
      *
-     * @param id Die ID der zu aktualisierenden Frage
+     * @param id       Die ID der zu aktualisierenden Frage
      * @param question Die aktualisierten Frage-Daten des Formulars
      * @return Die aktualisierte Frage
      * @throws QuestionNotFoundException wenn die Frage nicht existiert*
@@ -290,7 +290,7 @@ public class QuestionController {
      * Wenn keine Filter angegeben werden, werden alle Fragen zurückgegeben.
      * </p>
      *
-     * @param category Die Kategorie (optional)
+     * @param category   Die Kategorie (optional)
      * @param difficulty Der Schwierigkeitsgrad (optional)
      * @return Liste der gefilterten Fragen
      */
@@ -357,10 +357,10 @@ public class QuestionController {
      * </p>
      *
      * @param category Die Kategorie der Fragen
-     * @param limit Die maximale Anzahl Fragen (Standard: 5)
+     * @param limit    Die maximale Anzahl Fragen (Standard: 5)
      * @return Liste zufälliger Fragen der angegebenen Kategorie
      * @throws CategoryNotFoundException wenn die Kategorie ungültig ist
-     * @throws IllegalArgumentException wenn limit kleiner als 1 ist
+     * @throws IllegalArgumentException  wenn limit kleiner als 1 ist
      */
     @GetMapping("/random")
     @Operation(
@@ -372,7 +372,7 @@ public class QuestionController {
             @RequestParam String category,
             @Parameter(description = "Anzahl", example = "3")
             @RequestParam(defaultValue = "5") int limit) {
-        if(category != null){
+        if (category != null) {
             return service.getRandomQuestionsByCategory(category, limit);
         } else {
             return service.getRandomQuestions(limit);

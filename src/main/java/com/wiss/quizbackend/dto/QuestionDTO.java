@@ -41,9 +41,9 @@ import java.util.List;
  *
  * @author Johnny Krup
  * @version 1.0
- * @since 2025-06-01
  * @see Question Entity-Klasse für die Datenbank
  * @see QuestionController REST-Controller für API-Endpoints
+ * @since 2025-06-01
  */
 public class QuestionDTO {
 
@@ -146,7 +146,8 @@ public class QuestionDTO {
      * Erstellt ein leeres DTO-Objekt, alle Felder sind null.
      * </p>
      */
-    public QuestionDTO() {}
+    public QuestionDTO() {
+    }
 
     /**
      * Vollständiger Konstruktor für die Erstellung eines QuestionDTO.
@@ -155,14 +156,12 @@ public class QuestionDTO {
      * Nützlich für Tests und interne Konvertierungen.
      * </p>
      *
-     * @param id Die eindeutige ID (kann null für neue Fragen sein)
-     * @param question Der Fragetext (5-128 Zeichen)
+     * @param id            Die eindeutige ID (kann null für neue Fragen sein)
+     * @param question      Der Fragetext (5-128 Zeichen)
      * @param correctAnswer Die korrekte Antwort (max. 32 Zeichen)
-     * @param answers Liste mit genau 4 Antworten
-     * @param category Kategorie aus den vordefinierten Werten
-     * @param difficulty Schwierigkeitsgrad (easy, medium, hard)
-     *
-     *
+     * @param answers       Liste mit genau 4 Antworten
+     * @param category      Kategorie aus den vordefinierten Werten
+     * @param difficulty    Schwierigkeitsgrad (easy, medium, hard)
      * @apiNote Validation findet erst bei der Verwendung statt, nicht im Konstruktor
      */
     public QuestionDTO(Long id, String question, String correctAnswer, List<String> answers,
@@ -180,41 +179,55 @@ public class QuestionDTO {
      *
      * @return Die Frage-ID oder null bei neuen Fragen
      */
-    public Long getId() { return id; }
+    public Long getId() {
+        return id;
+    }
+
     /**
      * Setzt die eindeutige ID der Frage.
      *
      * @param id Die neue ID (kann null sein für neue Fragen)
      */
-    public void setId(Long id) { this.id = id; }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     /**
      * Gibt den Fragetext zurück.
      *
      * @return Der Text der Frage
      */
-    public String getQuestion() { return question; }
+    public String getQuestion() {
+        return question;
+    }
+
     /**
      * Setzt den Fragetext.
      *
      * @param question Der neue Fragetext (5-128 Zeichen, nicht leer)
      * @throws MethodArgumentNotValidException bei ungültigen Daten (bei Validation)
      */
-    public void setQuestion(String question) { this.question = question; }
+    public void setQuestion(String question) {
+        this.question = question;
+    }
 
     /**
      * Gibt die korrekte Antwort zurück.
      *
      * @return Die korrekte Antwort als Text
      */
-    public String getCorrectAnswer() { return correctAnswer; }
+    public String getCorrectAnswer() {
+        return correctAnswer;
+    }
 
     /**
      * Setzt die korrekte Antwort
      *
      * @param correctAnswer Die korrekte Antwort als Text
      */
-    public void setCorrectAnswer(String correctAnswer) { this.correctAnswer = correctAnswer; }
+    public void setCorrectAnswer(String correctAnswer) {
+        this.correctAnswer = correctAnswer;
+    }
 
     /**
      * Gibt die Liste aller Antwortmöglichkeiten zurück.
@@ -222,40 +235,52 @@ public class QuestionDTO {
      * @return Unveränderbare Liste mit allen Antworten
      * @apiNote Die zurückgegebene Liste sollte nicht direkt modifiziert werden
      */
-    public List<String> getAnswers() { return answers; }
+    public List<String> getAnswers() {
+        return answers;
+    }
 
     /**
      * Setzt die Liste aller Antwortmöglichkeiten.
      *
      * @param answers Die Liste der Antwortmöglichkeiten.
      */
-    public void setAnswers(List<String> answers) { this.answers = answers; }
+    public void setAnswers(List<String> answers) {
+        this.answers = answers;
+    }
 
     /**
      * Gibt die Kategorie der Frage zurück.
      *
      * @return Kategorie der Frage als Text.
      */
-    public String getCategory() { return category; }
+    public String getCategory() {
+        return category;
+    }
 
     /**
      * Setzt die Kategorie der Frage.
      *
      * @param category Kategorie der Frage als Text.
      */
-    public void setCategory(String category) { this.category = category; }
+    public void setCategory(String category) {
+        this.category = category;
+    }
 
     /**
      * Gibt den Schwierigkeitsgrad der Frage zurück.
      *
      * @return Der Schwierigkeitsgrad der Frage als Text.
      */
-    public String getDifficulty() { return difficulty; }
+    public String getDifficulty() {
+        return difficulty;
+    }
 
     /**
      * Setzt den Schwierigkeitsgrad der Frage.
      *
      * @param difficulty Der Schwierigkeitsgrad der Frage als Text.
      */
-    public void setDifficulty(String difficulty) { this.difficulty = difficulty; }
+    public void setDifficulty(String difficulty) {
+        this.difficulty = difficulty;
+    }
 }

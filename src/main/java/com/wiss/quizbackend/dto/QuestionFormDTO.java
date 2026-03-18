@@ -24,8 +24,8 @@ import java.util.List;
  *
  * @author Johnny Krup
  * @version 1.0
- * @since 2025-07-01
  * @see QuestionDTO DTO für die Anzeige von Fragen im Quiz
+ * @since 2025-07-01
  */
 @Schema(description = "DTO für Frontend-Formulare (Create/Update)")
 public class QuestionFormDTO {
@@ -108,18 +108,19 @@ public class QuestionFormDTO {
     /**
      * Standard-Konstruktor für JSON-Deserialisierung.
      */
-    public QuestionFormDTO() {}
+    public QuestionFormDTO() {
+    }
 
     /**
      * Vollständiger Konstruktor für das Erstellen eines QuestionFormDTO.
      *
-     * @param question Der Fragetext
-     * @param correctAnswer Die korrekte Antwort
+     * @param question         Der Fragetext
+     * @param correctAnswer    Die korrekte Antwort
      * @param incorrectAnswers Liste mit genau 3 falschen Antworten
-     * @param category Die Kategorie
-     * @param difficulty Der Schwierigkeitsgrad
-     * @param creatorUsername Der Benutzername des Erstellers
-     * @param creatorId Die ID des Erstellers der Frage
+     * @param category         Die Kategorie
+     * @param difficulty       Der Schwierigkeitsgrad
+     * @param creatorUsername  Der Benutzername des Erstellers
+     * @param creatorId        Die ID des Erstellers der Frage
      */
     public QuestionFormDTO(String question, String correctAnswer,
                            List<String> incorrectAnswers, String category,
@@ -134,16 +135,16 @@ public class QuestionFormDTO {
     }
 
     /**
-     *  Vollständiger Konstruktor für das Bearbeiten eines QuestionFormDTO.
+     * Vollständiger Konstruktor für das Bearbeiten eines QuestionFormDTO.
      *
-     * @param id Die eindeutige ID der Frage (kann null für neue Fragen sein)
-     * @param question Der Fragetext
-     * @param correctAnswer Die korrekte Antwort
+     * @param id               Die eindeutige ID der Frage (kann null für neue Fragen sein)
+     * @param question         Der Fragetext
+     * @param correctAnswer    Die korrekte Antwort
      * @param incorrectAnswers Liste mit genau 3 falschen Antworten
-     * @param category Die Kategorie
-     * @param difficulty Der Schwierigkeitsgrad
-     * @param creatorUsername Der Benutzername des Erstellers
-     * @param creatorId Die ID des Erstellers der Frage
+     * @param category         Die Kategorie
+     * @param difficulty       Der Schwierigkeitsgrad
+     * @param creatorUsername  Der Benutzername des Erstellers
+     * @param creatorId        Die ID des Erstellers der Frage
      */
     public QuestionFormDTO(Long id, String question, String correctAnswer,
                            List<String> incorrectAnswers, String category,
@@ -165,13 +166,18 @@ public class QuestionFormDTO {
      *
      * @return Die Frage-ID oder null bei neuen Fragen
      */
-    public Long getId() { return id; }
+    public Long getId() {
+        return id;
+    }
+
     /**
      * Setzt die eindeutige ID der Frage.
      *
      * @param id Die neue ID (kann null sein für neue Fragen)
      */
-    public void setId(Long id) { this.id = id; }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     /**
      * Gibt den Fragetext zurück.
@@ -297,7 +303,6 @@ public class QuestionFormDTO {
         return new QuestionDTO(id, this.question, this.correctAnswer,
                 allAnswers, this.category, this.difficulty);
     }
-
 
 
     /**

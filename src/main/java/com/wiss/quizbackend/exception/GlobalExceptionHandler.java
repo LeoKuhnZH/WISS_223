@@ -17,7 +17,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(QuestionNotFoundException.class)
     public ResponseEntity<ErrorResponseDTO> handleQuestionNotFound(
-            QuestionNotFoundException ex, WebRequest request){
+            QuestionNotFoundException ex, WebRequest request) {
 
         ErrorResponseDTO error = new ErrorResponseDTO(
                 "QUESTION_NOT_FOUND",
@@ -31,7 +31,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(InvalidQuestionDataException.class)
     public ResponseEntity<ErrorResponseDTO> handleInvalidQuestionData(
-            InvalidQuestionDataException ex, WebRequest request){
+            InvalidQuestionDataException ex, WebRequest request) {
 
         ErrorResponseDTO error = new ErrorResponseDTO(
                 "INVALID_QUESTION_DATA",
@@ -64,7 +64,7 @@ public class GlobalExceptionHandler {
 
         ErrorResponseDTO error = new ErrorResponseDTO(
                 "INVALID_DIFFICULTY",
-                "Schwierigkeitsgrad '" + ex.getDiffculty() + "' ist nicht gültig. " +
+                "Schwierigkeitsgrad '" + ex.getDifficulty() + "' ist nicht gültig. " +
                         "Verfügbare Schwierigkietsgrade: easy, medium, hard",
                 400,
                 extractPath(request)
@@ -130,10 +130,11 @@ public class GlobalExceptionHandler {
 
     /**
      * Extrahiert den API-Pfad aus dem WebRequest.
+     *
      * @param request
      * @return
      */
-    private String extractPath(WebRequest request){
+    private String extractPath(WebRequest request) {
         return request.getDescription(false).replace("uri=", "");
     }
 }

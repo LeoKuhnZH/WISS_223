@@ -33,19 +33,13 @@ public class Question {
     @JoinColumn(name = "created_by_user_id")
     private AppUser createdBy;
 
-    public AppUser getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(AppUser createdBy) {
-        this.createdBy = createdBy;
-    }
-
     // ✅ DEFAULT CONSTRUCTOR hinzufügen (für JPA/Hibernate):
-    public Question(){}
+    public Question() {
+    }
 
     /**
      * Konstruktor ohne ID für neue Fragen
+     *
      * @param question
      * @param correctAnswer
      * @param incorrectAnswers
@@ -65,6 +59,7 @@ public class Question {
 
     /**
      * Konstruktor mit ID um bestehende Fragen zu aktualisieren oder löschen
+     *
      * @param id
      * @param question
      * @param correctAnswer
@@ -81,6 +76,14 @@ public class Question {
         this.incorrectAnswers = incorrectAnswers;
         this.category = category;
         this.difficulty = difficulty;
+    }
+
+    public AppUser getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(AppUser createdBy) {
+        this.createdBy = createdBy;
     }
 
     public Long getId() {

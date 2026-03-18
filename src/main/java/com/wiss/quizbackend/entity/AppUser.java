@@ -33,8 +33,8 @@ public class AppUser {
     @Column(nullable = false)
     private String password;
 
-//    @Column(nullable = false)
-//    private Role role;
+    @Column(nullable = false)
+    private Role role;
 
     @Nonnull
     public Long getId() {
@@ -72,12 +72,12 @@ public class AppUser {
         this.password = password;
     }
 
-//    @Nonnull
-//    public Role getRole() {
-//        return role;
-//    }
-//
-//    public void setRole(Role role) {
-//        this.role = role;
-//    }
+    @Nonnull
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
 }

@@ -6,7 +6,6 @@ package com.wiss.quizbackend.entity;
 
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 
 
 @Entity
@@ -25,15 +24,12 @@ public class AppUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
     @Column(nullable = false, length = 50, unique = true)
     private String username;
 
-    @NotNull
     @Column(nullable = false, length = 100, unique = true)
     private String email;
 
-    @NotNull
     @Column(nullable = false)
     private String password;
 
